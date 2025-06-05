@@ -1,0 +1,10 @@
+﻿global using System.Linq.Expressions;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using Rira.Todo.Application.Contracts.Interfaces;
+global using Rira.Todo.Domain.Entities;
+global using Rira.Todo.Domain.Shared.Interfaces;
+global using Rira.Todo.EFCore.Repositories;

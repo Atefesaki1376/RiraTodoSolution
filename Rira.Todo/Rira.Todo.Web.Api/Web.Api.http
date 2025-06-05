@@ -1,0 +1,6 @@
+@Web.Api_HostAddress = https://localhost:7172
+
+GET {{Web.Api_HostAddress}}/api/sample/
+Accept: application/json
+
+###

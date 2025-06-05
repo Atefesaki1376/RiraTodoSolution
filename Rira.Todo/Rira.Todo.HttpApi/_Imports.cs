@@ -1,0 +1,14 @@
+﻿global using System.Net;
+global using System.Net.Http.Json;
+global using FluentValidation;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Localization;
+global using Microsoft.Extensions.Logging;
+global using Rira.Todo.Domain.Shared.Exceptions;
+global using Rira.Todo.Domain.Shared.Interfaces;
+global using Rira.Todo.Domain.Shared.Localization;
+global using Rira.Todo.Domain.Shared.Models;
+global using Rira.Todo.HttpApi.Dtos;
+global using Rira.Todo.HttpApi.Interfaces;
+global using Rira.Todo.HttpApi.Services;

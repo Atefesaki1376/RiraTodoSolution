@@ -1,0 +1,14 @@
+﻿global using AutoMapper;
+global using FluentValidation;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Localization;
+global using Microsoft.Extensions.Logging;
+global using Rira.Todo.Application.Contracts.Dtos;
+global using Rira.Todo.Application.Contracts.Interfaces;
+global using Rira.Todo.Application.Contracts.Validators;
+global using Rira.Todo.Application.MapperProfiles;
+global using Rira.Todo.Application.Models;
+global using Rira.Todo.Domain.Entities;
+global using Rira.Todo.Domain.Shared.Enums;
+global using Rira.Todo.Domain.Shared.Interfaces;
+global using Rira.Todo.Domain.Shared.Localization;

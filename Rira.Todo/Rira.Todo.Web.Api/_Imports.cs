@@ -1,0 +1,9 @@
+﻿global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.ApplicationModels;
+global using Microsoft.Extensions.Localization;
+global using Rira.Todo.Application.Contracts.Dtos;
+global using Rira.Todo.Application.Contracts.Interfaces;
+global using Rira.Todo.Domain.Shared.Interfaces;
+global using Rira.Todo.Domain.Shared.Localization;
+global using Rira.Todo.Domain.Shared.Models;
+global using Rira.Todo.Web.Api.Conventions;
