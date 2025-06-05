@@ -28,17 +28,14 @@ namespace Rira.Todo.Application.TodoItems
         {
             try
             {
-
                 await _validator.ValidateAndThrowAsync(todoItem, cancellationToken);
 
-
                 TodoItem todo = _mapper.Map<TodoItem>(todoItem);
-
 
                 await _todoItemrepository.AddAsync(todo, cancellationToken);
                 await _todoItemrepository.SaveChangesAsync(cancellationToken);
 
-
+                Logger.LogInformation("user added new todoitem(s)");
                 return todo.Id;
             }
             catch (ValidationException ex)
@@ -64,6 +61,7 @@ namespace Rira.Todo.Application.TodoItems
             {
                 await _todoItemrepository.DeleteAsync(id, cancellationToken);
                 await _todoItemrepository.SaveChangesAsync(cancellationToken);
+                Logger.LogInformation("user deleted todoitem");
             }
             catch (Exception ex)
             {
@@ -80,7 +78,7 @@ namespace Rira.Todo.Application.TodoItems
                 TodoItem todoItem = await _todoItemrepository.GetAsync(id, cancellationToken);
                 await _todoItemrepository.SaveChangesAsync(cancellationToken);
                 return _mapper.Map<TodoItemDto>(todoItem);
-       
+
             }
             catch (Exception ex)
             {
@@ -96,8 +94,9 @@ namespace Rira.Todo.Application.TodoItems
             {
                 IEnumerable<TodoItem> todoItems = await _todoItemrepository.GetListAsync(cancellationToken);
                 await _todoItemrepository.SaveChangesAsync(cancellationToken);
+                Logger.LogInformation("user request get list");
                 return _mapper.Map<List<TodoItemDto>>(todoItems);
-              
+
             }
             catch (Exception ex)
             {
@@ -118,6 +117,7 @@ namespace Rira.Todo.Application.TodoItems
                 TodoItem todo = _mapper.Map<TodoItem>(todoItem);
                 _todoItemrepository.Update(todo);
                 await _todoItemrepository.SaveChangesAsync(cancellationToken);
+                Logger.LogInformation("user updated todoitem");
             }
             catch (ValidationException ex)
             {

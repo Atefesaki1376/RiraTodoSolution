@@ -10,6 +10,8 @@ namespace Rira.Todo.Application
 
             services.AddScoped<IAppSettingsService, AppSettingsService>();
 
+            services.AddValidatorsFromAssemblyContaining<TodoItemDtoValidator>();
+
             return services;
         }
 

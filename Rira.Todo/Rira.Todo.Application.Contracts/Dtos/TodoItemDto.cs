@@ -1,6 +1,6 @@
 ﻿namespace Rira.Todo.Application.Contracts.Dtos;
 
-public class TodoItemDto : AuditDtoBase<Guid>
+public class TodoItemDto : DtoBase<Guid>
 {
     public string Title { get; set; }
     public string? Description { get; set; }

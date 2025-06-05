@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
+using Rira.Todo.Application.Contracts.TodoItems;
+using Rira.Todo.Application.TodoItems;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 builder.Services.AddHealthChecks();
-
+builder.Services.AddScoped<ITodoItemAppService, TodoItemAppService>();
 
 builder.Services.AddHostServices<Guid>(builder.Configuration);
 

@@ -1,64 +1,58 @@
-﻿using Rira.Todo.Domain.Entities;
+﻿using Rira.Todo.Application.Contracts.TodoItems;
 
 namespace Rira.Todo.Web.Api.Controllers
 {
     public class TodoItemsController : AppControllerBase
     {
-        private static readonly List<TodoItem> _todos = new();
 
-        public TodoItemsController(ILogger<TodoItemsController> logger) : base(logger)
+        private readonly ITodoItemAppService _todoService;
+
+        public TodoItemsController
+            (ILogger<TodoItemsController> logger,
+            ITodoItemAppService todoService) : base(logger)
         {
+            _todoService = todoService;
         }
 
         [HttpGet("GetList")]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetListAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<IEnumerable<TodoItemDto>>> GetListAsync(CancellationToken cancellationToken = default)
         {
-            Logger.LogInformation("user request get list");
-            return Ok(_todos);
+            var todos = await _todoService.GetListAsync(cancellationToken);
+            return Ok(todos);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoItem>> GetAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<TodoItemDto>> GetAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var todo = _todos.FirstOrDefault(t => t.Id == id);
-            if (todo == null) return NotFound();
+            var todo = await _todoService.GetAsync(id, cancellationToken);
+            if (todo == null)
+                return NotFound();
             return Ok(todo);
         }
 
         [HttpPost]
-        public async Task<ActionResult<TodoItem>> CreateAsync(TodoItem todo, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<TodoItemDto>> CreateAsync(TodoItemDto todo, CancellationToken cancellationToken = default)
         {
-            todo.Id = Guid.NewGuid();
-            _todos.Add(todo);
-            Logger.LogInformation("user added new todoitem(s)");
-            return CreatedAtAction(nameof(GetListAsync), new { id = todo.Id }, todo);
+            var id = await _todoService.CreateAsync(todo, cancellationToken);
+            todo.Id = id;
+            return Created("get", new { id = todo.Id });
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync(
-            Guid id, 
-            TodoItem updatedTodo, 
+            Guid id,
+            TodoItemDto updatedTodo,
             CancellationToken cancellationToken = default)
         {
-            var existingTodo = _todos.FirstOrDefault(t => t.Id == id);
-            if (existingTodo == null) return NotFound();
-
-            existingTodo.Title = updatedTodo.Title;
-            existingTodo.Description = updatedTodo.Description;
-            existingTodo.IsCompleted = updatedTodo.IsCompleted;
-            existingTodo.DueDate = updatedTodo.DueDate;
-            Logger.LogInformation("user updated todoitem");
+            await _todoService.UpdateAsync(id, updatedTodo, cancellationToken);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var todo = _todos.FirstOrDefault(t => t.Id == id);
-            if (todo == null) return NotFound();
-            _todos.Remove(todo);
-
-            Logger.LogInformation("user deleted todoitem");
+            await _todoService.DeleteAsync(id, cancellationToken);
+            
             return NoContent();
         }
     }

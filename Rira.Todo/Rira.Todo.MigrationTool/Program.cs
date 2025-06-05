@@ -8,7 +8,7 @@
             {
                 // Register your DbContext
                 services.AddDbContext<GuidAppDbContext>(options =>
-                    options.UseSqlServer("Data Source=DESKTOP-CJ50OTT\\MSSQLSERVER02;Database=Rira; Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False")); // Replace with your connection string
+                    options.UseSqlServer("Data Source=(localdb)\\ProjectModels;Initial Catalog=RiraDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False")); // Replace with your connection string
             })
             .Build();
 

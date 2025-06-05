@@ -12,15 +12,15 @@ using Rira.Todo.EFCore;
 namespace Rira.Todo.EFCore.Migrations
 {
     [DbContext(typeof(GuidAppDbContext))]
-    [Migration("20250604074639_add-todo-entity")]
-    partial class addtodoentity
+    [Migration("20250605174247_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.3")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

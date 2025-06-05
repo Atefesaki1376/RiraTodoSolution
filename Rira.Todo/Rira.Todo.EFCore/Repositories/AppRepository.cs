@@ -154,6 +154,10 @@
 
                     AppDbContext.Set<TEntity>().Update(entity);
                 }
+                else
+                {
+                    await HardDeleteAsync(id, cancellationToken);
+                }
             }
             catch (Exception ex)
             {
