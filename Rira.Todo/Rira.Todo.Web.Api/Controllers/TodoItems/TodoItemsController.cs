@@ -1,6 +1,6 @@
 ﻿using Rira.Todo.Application.Contracts.TodoItems;
 
-namespace Rira.Todo.Web.Api.Controllers
+namespace Rira.Todo.Web.Api.Controllers.TodoItems
 {
     public class TodoItemsController : AppControllerBase
     {
@@ -52,7 +52,7 @@ namespace Rira.Todo.Web.Api.Controllers
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             await _todoService.DeleteAsync(id, cancellationToken);
-            
+
             return NoContent();
         }
     }

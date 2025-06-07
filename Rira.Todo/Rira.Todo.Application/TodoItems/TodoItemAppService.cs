@@ -7,7 +7,6 @@ namespace Rira.Todo.Application.TodoItems
     {
         private readonly IRepository<TodoItem> _todoItemrepository;
         private readonly IMapper _mapper;
-
         private readonly IValidator<TodoItemDto> _validator;
 
         public TodoItemAppService(
