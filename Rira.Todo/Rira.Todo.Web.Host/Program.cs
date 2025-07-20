@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Builder;
-using Rira.Todo.Application.Contracts.TodoItems;
+using Rira.Todo.Application.Contracts.Interfaces.TodoItems;
 using Rira.Todo.Application.TodoItems;
 
 var builder = WebApplication.CreateBuilder(args);

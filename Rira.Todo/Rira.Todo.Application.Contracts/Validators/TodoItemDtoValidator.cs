@@ -1,4 +1,6 @@
-﻿namespace Rira.Todo.Application.Contracts.Validators
+﻿using Rira.Todo.Application.Contracts.Dtos.TodoItems;
+
+namespace Rira.Todo.Application.Contracts.Validators
 {
     public class TodoItemDtoValidator : AbstractValidator<TodoItemDto>
     {

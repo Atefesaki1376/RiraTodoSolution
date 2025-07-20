@@ -1,4 +1,4 @@
-﻿namespace Rira.Todo.Application.Contracts.Dtos;
+﻿namespace Rira.Todo.Application.Contracts.Dtos.TodoItems;
 
 public class TodoItemDto : DtoBase<Guid>
 {

@@ -134,7 +134,10 @@ namespace Rira.Todo.EFCore
             }
         }
     }
-
+    // (e)
+    // (e.IsSoftDeleted)
+    // (e.IsSoftDeleted == false)
+    // (e => e.IsSoftDeleted == false)
     public class GuidAppDbContext : AppDbContext<Guid>
     {
 

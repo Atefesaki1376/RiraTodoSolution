@@ -1,4 +1,5 @@
-﻿using Rira.Todo.Application.Contracts.TodoItems;
+﻿using Rira.Todo.Application.Contracts.Dtos.TodoItems;
+using Rira.Todo.Application.Contracts.Interfaces.TodoItems;
 
 namespace Rira.Todo.Web.Api.Controllers.TodoItems
 {
@@ -21,7 +22,7 @@ namespace Rira.Todo.Web.Api.Controllers.TodoItems
             return Ok(todos);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetAsync/{id}")]
         public async Task<ActionResult<TodoItemDto>> GetAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var todo = await _todoService.GetAsync(id, cancellationToken);
@@ -30,7 +31,7 @@ namespace Rira.Todo.Web.Api.Controllers.TodoItems
             return Ok(todo);
         }
 
-        [HttpPost]
+        [HttpPost("CreateAsync")]
         public async Task<ActionResult<TodoItemDto>> CreateAsync(TodoItemDto todo, CancellationToken cancellationToken = default)
         {
             var id = await _todoService.CreateAsync(todo, cancellationToken);
@@ -38,7 +39,7 @@ namespace Rira.Todo.Web.Api.Controllers.TodoItems
             return Created("get", new { id = todo.Id });
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateAsync/{id}")]
         public async Task<IActionResult> UpdateAsync(
             Guid id,
             TodoItemDto updatedTodo,
@@ -48,7 +49,7 @@ namespace Rira.Todo.Web.Api.Controllers.TodoItems
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteAsync/{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             await _todoService.DeleteAsync(id, cancellationToken);

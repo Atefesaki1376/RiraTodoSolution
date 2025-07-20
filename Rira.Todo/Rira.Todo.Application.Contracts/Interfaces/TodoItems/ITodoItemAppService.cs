@@ -1,4 +1,6 @@
-﻿namespace Rira.Todo.Application.Contracts.TodoItems;
+﻿using Rira.Todo.Application.Contracts.Dtos.TodoItems;
+
+namespace Rira.Todo.Application.Contracts.Interfaces.TodoItems;
 
 public interface ITodoItemAppService
 {

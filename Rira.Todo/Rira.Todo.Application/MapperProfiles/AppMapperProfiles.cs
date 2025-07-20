@@ -1,4 +1,6 @@
-﻿namespace Rira.Todo.Application.MapperProfiles
+﻿using Rira.Todo.Application.Contracts.Dtos.TodoItems;
+
+namespace Rira.Todo.Application.MapperProfiles
 {
     public class AppMapperProfiles : Profile
     {

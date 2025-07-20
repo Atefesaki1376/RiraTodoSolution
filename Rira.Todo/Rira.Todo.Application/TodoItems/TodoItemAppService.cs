@@ -1,4 +1,5 @@
-﻿using Rira.Todo.Application.Contracts.TodoItems;
+﻿using Rira.Todo.Application.Contracts.Dtos.TodoItems;
+using Rira.Todo.Application.Contracts.Interfaces.TodoItems;
 using Rira.Todo.Application.Services;
 
 namespace Rira.Todo.Application.TodoItems
