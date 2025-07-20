@@ -36,6 +36,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rira.Todo.SolutionItems", "Rira.Todo\Rira.Todo.SolutionItems\Rira.Todo.SolutionItems.csproj", "{59053049-3A73-47EF-9ED4-F9139A5936F1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		JwtTokenGenerator .cs = JwtTokenGenerator .cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,5 +102,6 @@ Global
 		{E743F338-7C7B-42B7-A7F2-BB2CD03929BD} = {FE7E1BDB-C5EB-45E4-AD3C-D799EFDF5C43}
 		{20E0C985-BBDE-4D29-8B1A-7601935B81A6} = {FE7E1BDB-C5EB-45E4-AD3C-D799EFDF5C43}
 		{59053049-3A73-47EF-9ED4-F9139A5936F1} = {184EFAC8-F235-4F9B-8C21-B5F5791BB698}
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {5B8A25B0-C973-44E5-90C2-450B13488224}
 	EndGlobalSection
 EndGlobal
